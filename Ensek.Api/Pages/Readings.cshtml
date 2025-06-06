@@ -1,0 +1,24 @@
+@page "/readings"
+@model Ensek.Api.Pages.Readings
+
+<h1>Meter readings</h1>
+
+<table class="table table-striped table-condensed">
+    <tr>
+        <th>Account</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Value</th>
+    </tr>
+    <tbody>
+    @foreach (var reading in Model.MeterReadings)
+    {
+        <tr>
+            <td>@reading.AccountId</td>
+            <td>@reading.Account.FullName</td>
+            <td>@reading.Date.ToString("dd/MM/yyyy HH:mm")</td>
+            <td>@reading.Value</td>
+        </tr>
+    }
+    </tbody>
+</table>

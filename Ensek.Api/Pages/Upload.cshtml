@@ -1,0 +1,13 @@
+@page "/upload"
+@model Ensek.Api.Pages.Upload
+
+<form method="post" action="/meter-reading-uploads" enctype="multipart/form-data">
+
+    <div class="form-group mb-3">
+        <label>
+            Choose a file containing meter readings:
+        </label>
+        <input type="file" name="file" class="form-control"/>
+    </div>
+    <button type="submit">Upload</button>
+</form>

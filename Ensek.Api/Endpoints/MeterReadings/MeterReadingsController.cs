@@ -1,3 +1,4 @@
+using System.Transactions;
 using Ensek.Api.Data;
 using Ensek.Api.Model;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -28,6 +29,7 @@ public class MeterReadingsController : ControllerBase
 
         var result = new MeterReadingResponse();
         var meterReadings = _parser.Parse(request.File.OpenReadStream());
+        using var tx = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
         foreach (var meterReading in meterReadings)
         {
             if (!meterReading.IsValid)
@@ -61,13 +63,14 @@ public class MeterReadingsController : ControllerBase
             {
                 Account = account,
                 AccountId = account.AccountId,
-                Date = meterReading.MeterReadingDateTime,
+                Date = meterReading.MeterReadingDateTime.ToUniversalTime(),
                 Value = meterReading.MeterReadValue,
             });
             result.SuccessfulCount++;
+            await _context.SaveChangesAsync();
         }
+        tx.Complete();
 
-        await _context.SaveChangesAsync();
         return Ok(result);
     }
 

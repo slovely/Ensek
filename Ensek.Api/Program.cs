@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 builder.Services.AddControllers();
+builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IMeterReadingParser, SepMeterReadingParser>();
 
 builder.Services.AddDbContext<EnsekDbContext>(o =>
@@ -19,5 +20,6 @@ var app = builder.Build();
 app.SetupDatabase();
 
 app.MapControllers();
+app.MapRazorPages();
 
 app.Run();
