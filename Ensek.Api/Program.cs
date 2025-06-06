@@ -1,11 +1,12 @@
 using Ensek.Api;
 using Ensek.Api.Data;
+using Ensek.Api.Endpoints.MeterReadings;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 builder.AddServiceDefaults();
+builder.Services.AddControllers();
+builder.Services.AddSingleton<IMeterReadingParser, SepMeterReadingParser>();
 
 builder.Services.AddDbContext<EnsekDbContext>(o =>
 {
@@ -17,6 +18,6 @@ var app = builder.Build();
 
 app.SetupDatabase();
 
-app.MapGet("/", () => "Hello World!");
+app.MapControllers();
 
 app.Run();

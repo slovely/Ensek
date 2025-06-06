@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{6EA0753B-A
 		Docs\Test_Accounts.csv = Docs\Test_Accounts.csv
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.Api.Tests", "Ensek.Api.Tests\Ensek.Api.Tests.csproj", "{B0D3EF81-021C-4D5E-B2D8-1EE82915CF73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{C5715734-0421-4DA2-8C7B-581694426BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5715734-0421-4DA2-8C7B-581694426BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5715734-0421-4DA2-8C7B-581694426BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D3EF81-021C-4D5E-B2D8-1EE82915CF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D3EF81-021C-4D5E-B2D8-1EE82915CF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D3EF81-021C-4D5E-B2D8-1EE82915CF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D3EF81-021C-4D5E-B2D8-1EE82915CF73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
